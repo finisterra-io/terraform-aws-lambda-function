@@ -78,7 +78,7 @@ resource "aws_iam_role" "this" {
 # }
 
 resource "aws_iam_role_policy_attachment" "custom" {
-  for_each = local.enabled && length(var.iam_policy_arns) > 0 ? var.iam_policy_arns : toset([])
+  for_each = local.enabled && var.create_iam_role && length(var.iam_policy_arns) > 0 ? var.iam_policy_arns : toset([])
 
   role       = data.aws_iam_role.this[0].name
   policy_arn = each.key
