@@ -33,7 +33,7 @@ resource "aws_lambda_function" "this" {
   package_type                   = var.package_type
   publish                        = var.publish
   reserved_concurrent_executions = var.reserved_concurrent_executions
-  role                           = aws_iam_role.this[0].arn
+  role                           = var.role
   runtime                        = var.runtime
   s3_bucket                      = var.s3_bucket
   s3_key                         = var.s3_key

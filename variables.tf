@@ -233,3 +233,9 @@ variable "iam_policy_description" {
   description = "Description of the IAM policy for the Lambda IAM role"
   default     = "Provides minimum SSM read permissions."
 }
+
+variable "role" {
+  type        = string
+  description = "IAM role attached to the Lambda Function."
+  default     = null
+}
