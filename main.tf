@@ -21,9 +21,9 @@ locals {
 resource "aws_cloudwatch_log_group" "default" {
   count = local.enabled ? 1 : 0
 
-  kms_key_arn       = var.cloudwatch_logs_kms_key_arn
-  retention_in_days = var.cloudwatch_logs_retention_in_days
   name              = "/aws/lambda/${var.function_name}"
+  kms_key_id        = var.cloudwatch_logs_kms_key_arn
+  retention_in_days = var.cloudwatch_logs_retention_in_days
   tags              = var.cloudwatch_logs_tags
 }
 
