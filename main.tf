@@ -5,13 +5,22 @@ locals {
   region_name = local.enabled ? data.aws_region.this[0].name : null
 }
 
-module "cloudwatch_log_group" {
-  source  = "cloudposse/cloudwatch-logs/aws"
-  version = "0.6.6"
+# module "cloudwatch_log_group" {
+#   source  = "cloudposse/cloudwatch-logs/aws"
+#   version = "0.6.6"
 
-  enabled = module.this.enabled
+#   enabled = module.this.enabled
 
-  iam_role_enabled  = false
+#   iam_role_enabled  = false
+#   kms_key_arn       = var.cloudwatch_logs_kms_key_arn
+#   retention_in_days = var.cloudwatch_logs_retention_in_days
+#   name              = "/aws/lambda/${var.function_name}"
+#   tags              = var.cloudwatch_logs_tags
+# }
+
+resource "aws_cloudwatch_log_group" "default" {
+  count = local.enabled ? 1 : 0
+
   kms_key_arn       = var.cloudwatch_logs_kms_key_arn
   retention_in_days = var.cloudwatch_logs_retention_in_days
   name              = "/aws/lambda/${var.function_name}"
@@ -94,7 +103,7 @@ resource "aws_lambda_function" "this" {
     }
   }
 
-  depends_on = [module.cloudwatch_log_group]
+  depends_on = [aws_cloudwatch_log_group.default]
 
   lifecycle {
     ignore_changes = [last_modified]
