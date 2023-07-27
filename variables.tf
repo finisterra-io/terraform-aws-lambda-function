@@ -264,3 +264,9 @@ variable "cloudwatch_logs_tags" {
   EOF
   default     = {}
 }
+
+variable "iam_role_description" {
+  type        = string
+  description = "Description of the IAM role for the Lambda Function."
+  default     = ""
+}

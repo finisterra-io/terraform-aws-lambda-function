@@ -2,6 +2,7 @@ resource "aws_iam_role" "this" {
   count = local.enabled && var.create_iam_role ? 1 : 0
 
   name                 = var.iam_role_name
+  description          = var.iam_role_description
   assume_role_policy   = var.assume_role_policy
   permissions_boundary = var.permissions_boundary
 }
