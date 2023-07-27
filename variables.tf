@@ -260,7 +260,7 @@ variable "assume_role_policy" {
 variable "cloudwatch_logs_tags" {
   type        = map(string)
   description = <<EOF
-  A mapping of tags to assign to the resource. Conflicts with cloudwatch_logs_retention_in_days.
+  A mapping of tags to assign to the resource. 
   EOF
   default     = {}
 }
