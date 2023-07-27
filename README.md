@@ -444,4 +444,3 @@ Check out [our other projects][github], [follow us on twitter][twitter], [apply 
   [share_email]: mailto:?subject=terraform-aws-lambda-function&body=https://github.com/cloudposse/terraform-aws-lambda-function
   [beacon]: https://ga-beacon.cloudposse.com/UA-76589703-4/cloudposse/terraform-aws-lambda-function?pixel&cs=github&cm=readme&an=terraform-aws-lambda-function
 <!-- markdownlint-restore -->
-# terraform-aws-lambda-function
