@@ -234,8 +234,25 @@ variable "iam_policy_description" {
   default     = "Provides minimum SSM read permissions."
 }
 
-variable "role" {
+
+variable "iam_role_name" {
   type        = string
-  description = "IAM role attached to the Lambda Function."
+  description = "IAM role name attached to the Lambda Function."
+  default     = null
+}
+
+variable "create_iam_role" {
+  type        = bool
+  description = "Whether to create an IAM role for the Lambda Function."
+  default     = false
+}
+
+variable "assume_role_policy" {
+  type        = string
+  description = <<EOF
+  The policy that grants an entity permission to assume the role. In Terraform, you can specify the policy either as a
+  data source, or as a literal value. In Terraform 0.12 and later, you can use a non-constant expression such as a
+  function call, but you cannot use any of the Terraform language built-in functions.
+  EOF
   default     = null
 }
