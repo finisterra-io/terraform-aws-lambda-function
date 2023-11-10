@@ -6,6 +6,7 @@ resource "aws_iam_role" "this" {
   assume_role_policy   = var.assume_role_policy
   permissions_boundary = var.permissions_boundary
   path                 = var.iam_role_path
+  tags                 = var.iam_role_tags
 }
 
 # data "aws_iam_policy_document" "assume_role_policy" {
