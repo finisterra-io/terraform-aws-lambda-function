@@ -19,7 +19,7 @@ locals {
 # }
 
 resource "aws_cloudwatch_log_group" "default" {
-  count = local.enabled ? 1 : 0
+  count = local.enabled && var.create_aws_cloudwatch_log_group ? 1 : 0
 
   name              = "/aws/lambda/${var.function_name}"
   kms_key_id        = var.cloudwatch_logs_kms_key_arn

@@ -284,3 +284,9 @@ variable "iam_role_tags" {
   EOF
   default     = {}
 }
+
+variable "create_aws_cloudwatch_log_group" {
+  type        = bool
+  description = "Whether to create an AWS CloudWatch Log Group for the Lambda Function."
+  default     = false
+}
