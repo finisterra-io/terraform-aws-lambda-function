@@ -270,3 +270,9 @@ variable "iam_role_description" {
   description = "Description of the IAM role for the Lambda Function."
   default     = ""
 }
+
+variable "iam_role_path" {
+  type        = string
+  description = "Path in which to create the IAM role for the Lambda Function."
+  default     = "/"
+}
