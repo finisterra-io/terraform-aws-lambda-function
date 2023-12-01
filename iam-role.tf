@@ -1,13 +1,13 @@
-resource "aws_iam_role" "this" {
-  count = local.enabled && var.create_iam_role ? 1 : 0
+# resource "aws_iam_role" "this" {
+#   count = local.enabled && var.create_iam_role ? 1 : 0
 
-  name                 = var.iam_role_name
-  description          = var.iam_role_description
-  assume_role_policy   = var.assume_role_policy
-  permissions_boundary = var.permissions_boundary
-  path                 = var.iam_role_path
-  tags                 = var.iam_role_tags
-}
+#   name                 = var.iam_role_name
+#   description          = var.iam_role_description
+#   assume_role_policy   = var.assume_role_policy
+#   permissions_boundary = var.permissions_boundary
+#   path                 = var.iam_role_path
+#   tags                 = var.iam_role_tags
+# }
 
 # data "aws_iam_policy_document" "assume_role_policy" {
 #   count = local.enabled ? 1 : 0
@@ -80,9 +80,9 @@ resource "aws_iam_role" "this" {
 #   role       = data.aws_iam_role.this[0].name
 # }
 
-resource "aws_iam_role_policy_attachment" "custom" {
-  for_each = local.enabled && var.create_iam_role && length(var.iam_policy_arns) > 0 ? var.iam_policy_arns : toset([])
+# resource "aws_iam_role_policy_attachment" "custom" {
+#   for_each = local.enabled && var.create_iam_role && length(var.iam_policy_arns) > 0 ? var.iam_policy_arns : toset([])
 
-  role       = data.aws_iam_role.this[0].name
-  policy_arn = each.key
-}
+#   role       = data.aws_iam_role.this[0].name
+#   policy_arn = each.key
+# }
