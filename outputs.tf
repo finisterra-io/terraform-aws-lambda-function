@@ -1,4 +1,4 @@
-output "arn" {
+output "function_arn" {
   description = "ARN of the lambda function"
   value       = local.enabled ? aws_lambda_function.this[0].arn : null
 }
